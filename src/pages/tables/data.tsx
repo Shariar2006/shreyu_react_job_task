@@ -20,6 +20,12 @@ interface DepartmentData {
   departmentName: string;
 }
 
+interface DesignationsData {
+  id: number;
+  departmentName: string;
+  Designation: string;
+}
+
 const records: Records[] = [
   {
     id: 1,
@@ -1113,4 +1119,66 @@ const departmentData: DepartmentData[] = [
   },
 ];
 
-export { records, expandableRecords, departmentData };
+const designationsData: DesignationsData[] = [
+  {
+    id: 1,
+    departmentName: "Web Development",
+    Designation: "Application Developer"
+
+  },
+  {
+    id: 2,
+    departmentName: "Web Development",
+    Designation: "Application Developer"
+
+  },
+  {
+    id: 3,
+    departmentName: "	UX Designer",
+    Designation: "Application Developer"
+
+  },
+  {
+    id: 4,
+    departmentName: "	IT Management",
+    Designation: "Application Developer"
+
+  },
+  {
+    id: 5,
+    departmentName: "Application Development",
+    Designation: "Application Developer"
+
+  },
+  {
+    id: 6,
+    departmentName: "Accounts Management",
+    Designation: "Application Developer"
+
+  },
+  {
+    id: 7,
+    departmentName: "Support Management",
+    Designation: "Application Developer"
+
+  },
+  {
+    id: 8,
+    departmentName: "Marketing",
+    Designation: "Application Developer"
+
+  },
+  {
+    id: 9,
+    departmentName: "IOS Developer",
+    Designation: "Application Developer"
+  },
+  {
+    id: 10,
+    departmentName: "IOS Developer",
+    Designation: "Application Developer"
+  },
+  
+];
+
+export { records, expandableRecords, departmentData,designationsData };
