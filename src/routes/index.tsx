@@ -3,6 +3,7 @@ import { Navigate, Route, RouteProps } from "react-router-dom";
 
 // components
 import PrivateRoute from "./PrivateRoute";
+
 // import Root from "./Root";
 
 // lazy load all the views
@@ -84,6 +85,13 @@ const AdvancedTables = React.lazy(() => import("../pages/tables/Advanced"));
 // maps
 const GoogleMaps = React.lazy(() => import("../pages/maps/GoogleMaps"));
 const VectorMaps = React.lazy(() => import("../pages/maps/VectorMaps"));
+
+//job task
+const Department = React.lazy(() => import("../pages/job-task/Department"));
+const Designations = React.lazy(() => import("../pages/job-task/Designations"));
+const TimeSheet = React.lazy(() => import("../pages/job-task/TimeSheet"));
+const ShiftScheduling = React.lazy(() => import("../pages/job-task/ShiftScheduling"));
+const Overtime = React.lazy(() => import("../pages/job-task/Overtime"));
 
 export interface RoutesProps {
   path: RouteProps["path"];
@@ -473,6 +481,47 @@ const otherPublicRoutes: RoutesProps[] = [
   },
 ];
 
+//job task
+const jobTaskRoutes: RoutesProps = {
+  path: "/job-task",
+  name: "Job Task",
+  route: PrivateRoute,
+  roles: ["Admin"],
+  icon: "mail",
+  children: [
+    {
+      name: "Department",
+      path: "/job-task/department",
+      element: <Department />,
+      route: PrivateRoute,
+    },
+    {
+      name: "Designations",
+      path: "/job-task/designations",
+      element: <Designations />,
+      route: PrivateRoute,
+    },
+    {
+      name: "Time Sheet",
+      path: "/job-task/time-sheet",
+      element: <TimeSheet />,
+      route: PrivateRoute,
+    },
+    {
+      name: "Shift Scheduling",
+      path: "/job-task/shift-Scheduling",
+      element: <ShiftScheduling />,
+      route: PrivateRoute,
+    },
+    {
+      name: "Overtime",
+      path: "/job-task/overtime",
+      element: <Overtime />,
+      route: PrivateRoute,
+    },
+  ],
+};
+
 // flatten the list of all nested routes
 const flattenRoutes = (routes: RoutesProps[]) => {
   let flatRoutes: RoutesProps[] = [];
@@ -494,6 +543,7 @@ const authProtectedRoutes = [
   ...appRoutes,
   extrapagesRoutes,
   uiRoutes,
+  jobTaskRoutes
 ];
 const publicRoutes = [...authRoutes, ...otherPublicRoutes];
 
@@ -504,4 +554,5 @@ export {
   authProtectedRoutes,
   authProtectedFlattenRoutes,
   publicProtectedFlattenRoutes,
+  jobTaskRoutes
 };

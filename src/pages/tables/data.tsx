@@ -15,6 +15,11 @@ interface ExpandableRecords {
   subRows: Records[];
 }
 
+interface DepartmentData {
+  id: number;
+  departmentName: string;
+}
+
 const records: Records[] = [
   {
     id: 1,
@@ -1080,4 +1085,32 @@ const expandableRecords: ExpandableRecords[] = [
     ],
   },
 ];
-export { records, expandableRecords };
+
+const departmentData: DepartmentData[] = [
+  {
+    id: 1,
+    departmentName: "Web Development"
+  },
+  {
+    id: 2,
+    departmentName: "Application Development"
+  },
+  {
+    id: 3,
+    departmentName: "	IT Management"
+  },
+  {
+    id: 4,
+    departmentName: "Accounts Management"
+  },
+  {
+    id: 5,
+    departmentName: "Support Management"
+  },
+  {
+    id: 6,
+    departmentName: "Marketing"
+  },
+];
+
+export { records, expandableRecords, departmentData };

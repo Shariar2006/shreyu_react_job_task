@@ -59,7 +59,7 @@ const MENU_ITEMS: MenuItemTypes[] = [
       {
         key: "email-inbox",
         label: "Inbox",
-        url: "/apps/email/inbox",
+        url: "/job-task/email/inbox",
         parentKey: "apps-email",
       },
       {
@@ -361,6 +361,45 @@ const MENU_ITEMS: MenuItemTypes[] = [
       },
     ],
   },
+  { key: "job-task", label: "Job Task", isTitle: true },
+  {
+    key: "job-task-task",
+    label: "Job Task",
+    icon: "layers",
+    isTitle: false,
+    children: [
+      {
+        key: "task-department",
+        label: "Department",
+        url: "/job-task/department",
+        parentKey: "task-task",
+      },
+      {
+        key: "task-designations",
+        label: "Designations",
+        url: "/job-task/designations",
+        parentKey: "task-task",
+      },
+      {
+        key: "task-time-sheet",
+        label: "Time Sheet",
+        url: "/job-task/time-sheet",
+        parentKey: "task-task",
+      },
+      {
+        key: "task-shift-Scheduling",
+        label: "Shift Scheduling",
+        url: "/job-task/shift-Scheduling",
+        parentKey: "task-task",
+      },
+      {
+        key: "task-overtime",
+        label: "Overtime",
+        url: "/job-task/overtime",
+        parentKey: "task-task",
+      },
+    ],
+  },
 ];
 
 const HORIZONTAL_MENU_ITEMS: MenuItemTypes[] = [
@@ -413,7 +452,7 @@ const HORIZONTAL_MENU_ITEMS: MenuItemTypes[] = [
           {
             key: "email-inbox",
             label: "Inbox",
-            url: "/apps/email/inbox",
+            url: "/job-task/email/inbox",
             parentKey: "apps-email",
           },
           {
@@ -675,6 +714,44 @@ const HORIZONTAL_MENU_ITEMS: MenuItemTypes[] = [
       },
     ],
   },
+  {
+    key: "job-task",
+    icon: "layers",
+    label: "JOb Task",
+    isTitle: true,
+    children: [
+      {
+        key: "job-task-department",
+        label: "Department",
+        url: "/job-task/department",
+        parentKey: "job-task",
+      },
+      {
+        key: "job-task-designations",
+        label: "Designations",
+        url: "/job-task/designations",
+        parentKey: "job-task",
+      },
+      {
+        key: "job-task-time-sheet",
+        label: "Time Sheet",
+        url: "/job-task/time-sheet",
+        parentKey: "job-task",
+      },
+      {
+        key: "job-task-shift-Scheduling",
+        label: "Shift Scheduling",
+        url: "/job-task/shift-Scheduling",
+        parentKey: "job-task",
+      },
+      {
+        key: "job-task-overtime",
+        label: "Overtime",
+        url: "/job-task/overtime",
+        parentKey: "job-task",
+      },
+    ]
+  }
 ];
 
 const TWO_COl_MENU_ITEMS: MenuItemTypes[] = [
@@ -730,7 +807,7 @@ const TWO_COl_MENU_ITEMS: MenuItemTypes[] = [
           {
             key: "email-inbox",
             label: "Inbox",
-            url: "/apps/email/inbox",
+            url: "/job-task/email/inbox",
             parentKey: "apps-email",
           },
           {
@@ -1050,6 +1127,52 @@ const TWO_COl_MENU_ITEMS: MenuItemTypes[] = [
     icon: "gift",
     url: "/components/widgets",
   },
+  {
+    key: "job-task",
+    icon: "layers",
+    label: "JOb Task",
+    isTitle: true,
+    children: [
+      {
+        key: "job-task-task",
+        label: "Job Task",
+        icon: "layers",
+        isTitle: false,
+        children: [
+          {
+            key: "task-department",
+            label: "Department",
+            url: "/job-task/department",
+            parentKey: "task-task",
+          },
+          {
+            key: "task-designations",
+            label: "Designations",
+            url: "/job-task/designations",
+            parentKey: "task-task",
+          },
+          {
+            key: "task-time-sheet",
+            label: "Time Sheet",
+            url: "/job-task/time-sheet",
+            parentKey: "task-task",
+          },
+          {
+            key: "task-shift-Scheduling",
+            label: "Shift Scheduling",
+            url: "/job-task/shift-Scheduling",
+            parentKey: "task-task",
+          },
+          {
+            key: "task-overtime",
+            label: "Overtime",
+            url: "/job-task/overtime",
+            parentKey: "task-task",
+          },
+        ],
+      },
+    ]
+  }
 ];
 
 export { MENU_ITEMS, TWO_COl_MENU_ITEMS, HORIZONTAL_MENU_ITEMS };
