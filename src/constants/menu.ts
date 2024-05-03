@@ -35,6 +35,45 @@ const MENU_ITEMS: MenuItemTypes[] = [
       },
     ],
   },
+  { key: "job-task", label: "Job Task", isTitle: true },
+  {
+    key: "job-task-task",
+    label: "Job Task",
+    icon: "layers",
+    isTitle: false,
+    children: [
+      {
+        key: "task-department",
+        label: "Department",
+        url: "/job-task/department",
+        parentKey: "task-task",
+      },
+      {
+        key: "task-designations",
+        label: "Designations",
+        url: "/job-task/designations",
+        parentKey: "task-task",
+      },
+      {
+        key: "task-time-sheet",
+        label: "Time Sheet",
+        url: "/job-task/time-sheet",
+        parentKey: "task-task",
+      },
+      {
+        key: "task-shift-Scheduling",
+        label: "Shift Scheduling",
+        url: "/job-task/shift-Scheduling",
+        parentKey: "task-task",
+      },
+      {
+        key: "task-overtime",
+        label: "Overtime",
+        url: "/job-task/overtime",
+        parentKey: "task-task",
+      },
+    ],
+  },
   { key: "apps", label: "Apps", isTitle: true },
   {
     key: "apps-calendar",
@@ -361,45 +400,7 @@ const MENU_ITEMS: MenuItemTypes[] = [
       },
     ],
   },
-  { key: "job-task", label: "Job Task", isTitle: true },
-  {
-    key: "job-task-task",
-    label: "Job Task",
-    icon: "layers",
-    isTitle: false,
-    children: [
-      {
-        key: "task-department",
-        label: "Department",
-        url: "/job-task/department",
-        parentKey: "task-task",
-      },
-      {
-        key: "task-designations",
-        label: "Designations",
-        url: "/job-task/designations",
-        parentKey: "task-task",
-      },
-      {
-        key: "task-time-sheet",
-        label: "Time Sheet",
-        url: "/job-task/time-sheet",
-        parentKey: "task-task",
-      },
-      {
-        key: "task-shift-Scheduling",
-        label: "Shift Scheduling",
-        url: "/job-task/shift-Scheduling",
-        parentKey: "task-task",
-      },
-      {
-        key: "task-overtime",
-        label: "Overtime",
-        url: "/job-task/overtime",
-        parentKey: "task-task",
-      },
-    ],
-  },
+  
 ];
 
 const HORIZONTAL_MENU_ITEMS: MenuItemTypes[] = [
