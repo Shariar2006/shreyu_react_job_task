@@ -164,17 +164,17 @@ const TimeSheet = () => {
 
             <Modal show={show} onHide={onCloseModal}
                 backdrop="static" keyboard={false}>
-                <Modal.Header style={{ width: '950px' }} className="pb-2 px-4 border-bottom-0 bg-white mx-auto" closeButton>
+                <Modal.Header  className="pb-2 px-4 border-bottom-0" closeButton>
                     <Modal.Title id="modal-title">
-                        <h5>{isDelete ? '' : isEditable ? "Edit Department" : "Add New Department"}</h5>
+                        <h5>{isDelete ? '' : isEditable ? "Edit Work details" : "Add Today Work details"}</h5>
                     </Modal.Title>
                 </Modal.Header>
-                <Modal.Body style={{ width: '950px' }} className="px-4 pb-4 pt-0 bg-white">
+                <Modal.Body  className="px-4 pb-4 pt-0">
                     {
                         isDelete ? <>
                             <Col xs={8} className="text-end float-start">
                                 <div>
-                                    <h4 className="header-title"> Delete Department</h4>
+                                    <h4 className="header-title"> Delete Work details</h4>
                                     <p className="text-muted fs-14 mb-4">Are you sure want to delete?</p>
                                 </div>
                                 <Button className="btn btn-light me-1" onClick={onCloseModal}
@@ -191,9 +191,9 @@ const TimeSheet = () => {
                             </Col>
                         </> :
 
-                            <Form className="form-horizontal">
+                            <Form className="form-horizontal" onSubmit={handleSubmit(onSubmitEvent)}>
                                 <Row>
-                                    <Col md={6}>
+                                    <Col md={12}>
                                         <Form.Group as={Row} className="mb-3">
                                             <Form.Label column lg={2}>
                                                 Project
@@ -224,111 +224,30 @@ const TimeSheet = () => {
                                         </Form.Group>
 
                                         <Form.Group as={Row} className="mb-3">
-                                            <Form.Label column lg={2} htmlFor="example-email">
-                                                Email
+                                            <Form.Label column lg={2} htmlFor="example-total-hour">
+                                                Total Hour
                                             </Form.Label>
                                             <Col lg={10}>
                                                 <Form.Control
-                                                    type="email"
-                                                    id="example-email"
-                                                    name="example-email"
-                                                    placeholder="Email"
-                                                />
-                                            </Col>
-                                        </Form.Group>
-                                        <Form.Group as={Row} className="mb-3">
-                                            <Form.Label column lg={2} htmlFor="example-password">
-                                                Password
-                                            </Form.Label>
-                                            <Col lg={10}>
-                                                <Form.Control
-                                                    type="password"
-                                                    id="example-password"
-                                                    defaultValue="password"
+                                                    type="number"
+                                                    id="example-total-hour"
+                                                    name="example-total-hour"
+                                                    placeholder="Total hour"
                                                 />
                                             </Col>
                                         </Form.Group>
 
                                         <Form.Group as={Row} className="mb-3">
-                                            <Form.Label column lg={2} htmlFor="example-placeholder">
-                                                Placeholder
+                                            <Form.Label column lg={2} htmlFor="example-remaining-hour">
+                                                Remaining Hour
                                             </Form.Label>
                                             <Col lg={10}>
                                                 <Form.Control
-                                                    type="text"
-                                                    placeholder="placeholder"
-                                                    id="example-placeholder"
+                                                    type="number"
+                                                    id="example-remaining-hour"
+                                                    name="example-remaining-hour"
+                                                    placeholder="Remaining hour"
                                                 />
-                                            </Col>
-                                        </Form.Group>
-                                        <Form.Group as={Row} className="mb-3">
-                                            <Form.Label column lg={2} htmlFor="example-textarea">
-                                                Text area
-                                            </Form.Label>
-                                            <Col lg={10}>
-                                                <Form.Control as="textarea" rows={5} id="example-textarea" />
-                                            </Col>
-                                        </Form.Group>
-
-                                        <Form.Group as={Row} className="mb-3">
-                                            <Form.Label column lg={2}>
-                                                Readonly
-                                            </Form.Label>
-                                            <Col lg={10}>
-                                                <Form.Control type="text" readOnly value="Readonly value" />
-                                            </Col>
-                                        </Form.Group>
-                                        <Form.Group as={Row} className="mb-3">
-                                            <Form.Label column lg={2}>
-                                                Disabled
-                                            </Form.Label>
-                                            <Col lg={10}>
-                                                <Form.Control type="text" disabled value="Disabled value" />
-                                            </Col>
-                                        </Form.Group>
-
-                                        <Form.Group as={Row} className="mb-3">
-                                            <Form.Label column lg={2} htmlFor="example-static">
-                                                Static control
-                                            </Form.Label>
-                                            <Col lg={10}>
-                                                <Form.Control
-                                                    type="text"
-                                                    readOnly
-                                                    plaintext
-                                                    id="example-static"
-                                                    value="email@example.com"
-                                                />
-                                            </Col>
-                                        </Form.Group>
-                                        <Form.Group as={Row} className="mb-3">
-                                            <Form.Label column lg={2} htmlFor="example-helping">
-                                                Helping text
-                                            </Form.Label>
-                                            <Col lg={10}>
-                                                <Form.Control
-                                                    type="text"
-                                                    id="example-helping"
-                                                    placeholder="Helping text"
-                                                />
-                                                <span className="help-block">
-                                                    <small>
-                                                        A block of help text that breaks onto a new line and may
-                                                        extend beyond one line.
-                                                    </small>
-                                                </span>
-                                            </Col>
-                                        </Form.Group>
-
-
-                                    </Col>
-                                    <Col md={6}>
-                                        <Form.Group as={Row} className="mb-3">
-                                            <Form.Label column lg={2} htmlFor="example-fileinput">
-                                                Default file input
-                                            </Form.Label>
-                                            <Col lg={10}>
-                                                <Form.Control type="file" id="example-fileinput" />
                                             </Col>
                                         </Form.Group>
 
@@ -337,101 +256,57 @@ const TimeSheet = () => {
                                                 Date
                                             </Form.Label>
                                             <Col lg={10}>
-                                                <Form.Control id="example-date" type="date" name="date" />
+                                                <ShreyuDatepicker
+                                                    hideAddon={true}
+                                                    value={selectedDate}
+                                                    onChange={(date) => {
+                                                        onDateChange(date);
+                                                    }}
+                                                />
                                             </Col>
                                         </Form.Group>
 
                                         <Form.Group as={Row} className="mb-3">
-                                            <Form.Label column lg={2} htmlFor="example-month">
-                                                Month
-                                            </Form.Label>
-                                            <Col lg={10}>
-                                                <Form.Control id="example-month" type="month" name="month" />
-                                            </Col>
-                                        </Form.Group>
-
-                                        <Form.Group as={Row} className="mb-3">
-                                            <Form.Label column lg={2} htmlFor="example-time">
-                                                Time
-                                            </Form.Label>
-                                            <Col lg={10}>
-                                                <Form.Control id="example-time" type="time" name="time" />
-                                            </Col>
-                                        </Form.Group>
-
-                                        <Form.Group as={Row} className="mb-3">
-                                            <Form.Label column lg={2} htmlFor="example-week">
-                                                Week
-                                            </Form.Label>
-                                            <Col lg={10}>
-                                                <Form.Control id="example-week" type="week" name="week" />
-                                            </Col>
-                                        </Form.Group>
-
-                                        <Form.Group as={Row} className="mb-3">
-                                            <Form.Label column lg={2} htmlFor="example-number">
-                                                Number
+                                            <Form.Label column lg={2} htmlFor="example-hour">
+                                             Hours
                                             </Form.Label>
                                             <Col lg={10}>
                                                 <Form.Control
-                                                    id="example-number"
                                                     type="number"
-                                                    name="number"
+                                                    id="example-hour"
+                                                    name="example-hour"
+                                                    placeholder="Hours"
                                                 />
                                             </Col>
                                         </Form.Group>
 
                                         <Form.Group as={Row} className="mb-3">
-                                            <Form.Label column lg={2}>
-                                                URL
+                                            <Form.Label column lg={2} htmlFor="example-textarea">
+                                            Description 
                                             </Form.Label>
                                             <Col lg={10}>
-                                                <Form.Control type="url" name="url" />
+                                                <Form.Control as="textarea" rows={5} id="example-textarea" />
                                             </Col>
                                         </Form.Group>
 
-                                        <Form.Group as={Row} className="mb-3">
-                                            <Form.Label column lg={2}>
-                                                Search
-                                            </Form.Label>
-                                            <Col lg={10}>
-                                                <Form.Control type="search" name="search" />
-                                            </Col>
-                                        </Form.Group>
 
-                                        <Form.Group as={Row} className="mb-3">
-                                            <Form.Label column lg={2}>
-                                                Tel
-                                            </Form.Label>
-                                            <Col lg={10}>
-                                                <Form.Control type="tel" name="tel" />
-                                            </Col>
-                                        </Form.Group>
-
-                                        <Form.Group as={Row} className="mb-3">
-                                            <Form.Label column lg={2} htmlFor="example-color">
-                                                Color
-                                            </Form.Label>
-                                            <Col lg={10}>
-                                                <Form.Control
-                                                    id="example-color"
-                                                    type="color"
-                                                    name="color"
-                                                    className="w-100"
-                                                    defaultValue="#5369f8"
-                                                />
-                                            </Col>
-                                        </Form.Group>
-
-                                        <Form.Group as={Row} className="mb-0">
-                                            <Form.Label column lg={2} htmlFor="example-range">
-                                                Range
-                                            </Form.Label>
-                                            <Col lg={10}>
-                                                <Form.Range className="mt-1" name="range" />
-                                            </Col>
-                                        </Form.Group>
                                     </Col>
+                                </Row>
+                                <Row>
+                                    <Col xs={12} className="text-end float-start">
+                                        <Button className="btn btn-light me-1" onClick={onCloseModal}
+                                        >
+                                            Close
+                                        </Button>
+                                        <Button
+                                            variant="success"
+                                            type="submit"
+                                            className="btn btn-success"
+                                        >
+                                            {isEditable ? "Edit Time Sheet" : "Add Time Sheet"}
+                                        </Button>
+                                    </Col>
+
                                 </Row>
                             </Form>
                     }
