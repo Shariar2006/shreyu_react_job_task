@@ -32,13 +32,13 @@ const IntroCard = ({ createNewEvent }: IntroCardProps) => {
       </Col>
       <Col xl={10} lg={9}>
         <div className="mt-4 mt-lg-0">
-          <h5 className="mt-0 mb-1 fw-bold">Welcome to Your Calendar</h5>
-          <p className="text-muted mb-2">
+          <h5 className="mt-0 mb-1 fw-bold">Daily Scheduling</h5>
+          {/* <p className="text-muted mb-2">
             The calendar shows the events synced from all your linked calendars.
             Click on event to see or edit the details. You can create new event
             by clicking on "Create New event" button or any cell available in
             calendar below.
-          </p>
+          </p> */}
           {/* add events */}
           <Button
             variant="primary"
@@ -46,11 +46,11 @@ const IntroCard = ({ createNewEvent }: IntroCardProps) => {
             id="btn-new-event"
             onClick={createNewEvent}
           >
-            <i className="uil-plus-circle"></i> Create New Event
+            <i className="uil-plus-circle"></i> Assign Shifts
           </Button>
-          <Button variant="white" className="mt-2">
+          {/* <Button variant="white" className="mt-2">
             <i className="uil-sync"></i> Link Calendars
-          </Button>
+          </Button> */}
         </div>
       </Col>
     </Row>
@@ -147,13 +147,13 @@ const CalendarApp = () => {
 
   return (
     <>
-      <PageTitle
+      {/* <PageTitle
         breadCrumbItems={[
           { label: "Apps", path: "/apps/calendar" },
           { label: "Calendar", path: "/apps/calendar", active: true },
         ]}
         title={"Calendar"}
-      />
+      /> */}
 
       <Row>
         <Col>
