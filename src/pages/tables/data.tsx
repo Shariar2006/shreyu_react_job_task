@@ -25,6 +25,27 @@ interface DesignationsData {
   departmentName: string;
   Designation: string;
 }
+interface TimeSheetData {
+  id: number;
+  name: string;
+  date: string;
+  project: string;
+  assignedHours: number;
+  hours: number;
+  description: string
+
+}
+interface OvertimeData {
+  id: number;
+  name: string;
+  OTDate: string;
+  OTType: string;
+  status: string;
+  OTHours: number;
+  description: string;
+  approvedBy: string
+
+}
 
 const records: Records[] = [
   {
@@ -1178,7 +1199,121 @@ const designationsData: DesignationsData[] = [
     departmentName: "IOS Developer",
     Designation: "Application Developer"
   },
-  
+
 ];
 
-export { records, expandableRecords, departmentData,designationsData };
+const timeSheetData: TimeSheetData[] = [
+  {
+    id: 1,
+    name: "John Doe Web Designer	",
+    date: "1 Jan 2023",
+    project: "Video Calling App",
+    assignedHours: 10,
+    hours: 12,
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+
+  },
+  {
+    id: 2,
+    name: "Richard Miles Android Developer	",
+    date: "1 Jan 2023",
+    project: "Project Management	",
+    assignedHours: 10,
+    hours: 12,
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+
+  },
+  {
+    id: 3,
+    name: "Jeffery Lalor Team Leader	",
+    date: "1 Jan 2023",
+    project: "Ware house developement	",
+    assignedHours: 10,
+    hours: 12,
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+
+  },
+  {
+    id: 4,
+    name: "Jeffrey Warden Web Developer	",
+    date: "1 Jan 2023",
+    project: "Project Management	",
+    assignedHours: 10,
+    hours: 12,
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+
+  },
+  {
+    id: 5,
+    name: "John Doe Web Designer	",
+    date: "1 Jan 2023",
+    project: "Office Management	",
+    assignedHours: 10,
+    hours: 12,
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+
+  },
+  {
+    id: 6,
+    name: "John Smith Android Developer	",
+    date: "1 Jan 2023",
+    project: "Video Calling App	",
+    assignedHours: 10,
+    hours: 12,
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+
+  },
+  {
+    id: 7,
+    name: " Lesley Grauer Team Leader	",
+    date: "1 Jan 2023",
+    project: "Hospital Administration	",
+    assignedHours: 10,
+    hours: 12,
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+
+  },
+  {
+    id: 8,
+    name: " Loren Gatlin Android Developer	",
+    date: "1 Jan 2023",
+    project: "Office Management	",
+    assignedHours: 10,
+    hours: 12,
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+
+  },
+  {
+    id: 9,
+    name: " Mike Litorus Android DeveloperIOS Developer	",
+    date: "1 Jan 2023",
+    project: "Hospital Administration	",
+    assignedHours: 10,
+    hours: 12,
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+  },
+  {
+    id: 10,
+    name: "Richard Miles Web Developer	",
+    date: "1 Jan 2023",
+    project: "Project Management	",
+    assignedHours: 10,
+    hours: 12,
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+  },
+
+];
+const overtimeData: OvertimeData[] = [
+  {
+    id: 1,
+    name: "John Doe Web Designer	",
+    OTDate: "1 Jan 2023",
+    OTHours: 2,
+    OTType: "Normal day OT 1.5x	",
+    description: "Lorem ipsum dolor.",
+    status: "new",
+    approvedBy: "Richard miles"
+  },
+];
+
+export { records, expandableRecords, departmentData, designationsData, timeSheetData, overtimeData };

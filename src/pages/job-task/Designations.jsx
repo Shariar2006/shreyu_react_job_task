@@ -114,7 +114,7 @@ const Designations = () => {
                                     <h4 className="header-title">Designations</h4>
                                     <p className="text-muted fs-14 mb-4">A Table allowing search</p>
                                 </div>
-                                <button onClick={createNewDepartment} className="btn btn-primary h-50">Add Department</button>
+                                <button onClick={createNewDepartment} className="btn btn-primary h-50">Add Designations</button>
                             </div>
 
                             <Table

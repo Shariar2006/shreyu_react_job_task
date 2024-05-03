@@ -17,7 +17,7 @@ const ReactSelect = () => {
         <h4 className="header-title">
           <Link
             rel="noreferrer"
-            to={{ pathname: "https://github.com/JedWatson/react-select" }}
+            to={{ hash: "https://github.com/JedWatson/react-select" }}
             target="_blank"
           >
             React select
