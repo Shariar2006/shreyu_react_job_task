@@ -303,7 +303,7 @@ const TimeSheet = () => {
                                             type="submit"
                                             className="btn btn-success"
                                         >
-                                            {isEditable ? "Edit Time Sheet" : "Add Time Sheet"}
+                                            {isEditable ? "Save" : "Add Time Sheet"}
                                         </Button>
                                     </Col>
 

@@ -212,7 +212,7 @@ const Designations = () => {
                                             type="submit"
                                             className="btn btn-success"
                                         >
-                                            {isEditable ? "Edit Designations" : "Add Designations"}
+                                            {isEditable ? "Save" : "Add Designations"}
                                         </Button>
                                     </Col>
 

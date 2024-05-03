@@ -1,6 +1,6 @@
 
 import Statistics from "../apps/Projects/Detail/Statistics";
-import { Row, Col, Card, Dropdown, Modal, Button } from "react-bootstrap";
+import { Row, Col, Card, Dropdown, Modal, Button, Form } from "react-bootstrap";
 
 // components
 import Table from "../../components/Table";
@@ -10,6 +10,7 @@ import { overtimeData as data, } from "../tables/data";
 import { FormInput } from "../../components";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import ShreyuDatepicker from "../../components/Datepicker";
 console.log(data)
 
 
@@ -39,6 +40,16 @@ const Overtime = () => {
     const [isEditable, setIsEditable] = useState(false);
     const [isDelete, setIsDelete] = useState(false);
     const onOpenModal = () => setShow(true);
+    const [selectedDate, setSelectedDate] = useState(new Date());
+
+  /*
+   * handle date change
+   */
+  const onDateChange = (date) => {
+    if (date) {
+      setSelectedDate(date);
+    }
+  };
 
     const createNewDepartment = () => {
         setIsEditable(false);
@@ -204,7 +215,7 @@ const Overtime = () => {
                 backdrop="static" keyboard={false}>
                 <Modal.Header className="pb-2 px-4 border-bottom-0" closeButton>
                     <Modal.Title id="modal-title">
-                        <h5>{isDelete ? '' : isEditable ? "Edit Designations" : "Add New Designations"}</h5>
+                        <h5>{isDelete ? '' : isEditable ? "Edit Overtime" : "Add Overtime"}</h5>
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body className="px-4 pb-4 pt-0">
@@ -212,7 +223,7 @@ const Overtime = () => {
                         isDelete ? <>
                             <Col xs={8} className="text-end float-start">
                                 <div>
-                                    <h4 className="header-title"> Delete Designations</h4>
+                                    <h4 className="header-title"> Delete Add Overtime</h4>
                                     <p className="text-muted fs-14 mb-4">Are you sure want to delete?</p>
                                 </div>
                                 <Button className="btn btn-light me-1" onClick={onCloseModal}
@@ -229,47 +240,63 @@ const Overtime = () => {
                             </Col>
                         </> :
 
-                            <form
-                                noValidate
-                                name="chat-form"
-                                id="chat-form"
-                                onSubmit={handleSubmit(onSubmitEvent)}
-                            >
+                            <Form className="form-horizontal" onSubmit={handleSubmit(onSubmitEvent)}>
                                 <Row>
-                                    <Col sm={12}>
-                                        <FormInput
-                                            type="text"
-                                            label="Designations Name *"
-                                            name="title"
-                                            className="form-control"
-                                            placeholder="Department Name"
-                                            containerClass={"mb-3"}
-                                            register={register}
-                                            key="title"
-                                            errors={errors}
-                                            control={control}
-                                        />
-                                    </Col>
-                                    <Col sm={12}>
-                                        <FormInput
-                                            type="select"
-                                            label="Department"
-                                            name="className"
-                                            className="form-control"
-                                            containerClass={"mb-3"}
-                                            register={register}
-                                            key="className"
-                                            errors={errors}
-                                            control={control}
-                                        >
-                                            <option value="webDevelopment">Web Development</option>
-                                            <option value="itManagement">It Management</option>
-                                            <option value="marking">Marking</option>
-                                        </FormInput>
-                                    </Col>
+                                    <Col md={12}>
+                                        <Form.Group as={Row} className="mb-3">
+                                            <Form.Label column lg={2}>
+                                            Select Employee 
+                                            </Form.Label>
+                                            <Col lg={10}>
+                                                <Form.Select>
+                                                    <option>John Deo</option>
+                                                    <option>Richard Miles</option>
+                                                    <option>John Smith</option>
+                                                </Form.Select>
+                                            </Col>
+                                        </Form.Group>
 
+                                        <Form.Group as={Row} className="mb-3">
+                                            <Form.Label column lg={2} htmlFor="example-date">
+                                            Overtime Date
+                                            </Form.Label>
+                                            <Col lg={10}>
+                                                <ShreyuDatepicker
+                                                    hideAddon={true}
+                                                    value={selectedDate}
+                                                    onChange={(date) => {
+                                                        onDateChange(date);
+                                                    }}
+                                                />
+                                            </Col>
+                                        </Form.Group>
+
+                                        <Form.Group as={Row} className="mb-3">
+                                            <Form.Label column lg={2} htmlFor="example-overtime-hour">
+                                                Overtime Hours
+                                            </Form.Label>
+                                            <Col lg={10}>
+                                                <Form.Control
+                                                    type="number"
+                                                    id="example-overtime-hour"
+                                                    name="example-overtime-hour"
+                                                    placeholder="Overtime Hours"
+                                                />
+                                            </Col>
+                                        </Form.Group>
+
+                                        <Form.Group as={Row} className="mb-3">
+                                            <Form.Label column lg={2} htmlFor="example-textarea">
+                                                Description
+                                            </Form.Label>
+                                            <Col lg={10}>
+                                                <Form.Control as="textarea" rows={5} id="example-textarea" />
+                                            </Col>
+                                        </Form.Group>
+
+
+                                    </Col>
                                 </Row>
-
                                 <Row>
                                     <Col xs={12} className="text-end float-start">
                                         <Button className="btn btn-light me-1" onClick={onCloseModal}
@@ -281,12 +308,12 @@ const Overtime = () => {
                                             type="submit"
                                             className="btn btn-success"
                                         >
-                                            {isEditable ? "Edit Designations" : "Add Designations"}
+                                            {isEditable ? "Save" : "Add Add Overtime"}
                                         </Button>
                                     </Col>
 
                                 </Row>
-                            </form>
+                            </Form>
                     }
 
                 </Modal.Body>

@@ -190,7 +190,7 @@ const Department = () => {
                                             type="submit"
                                             className="btn btn-success"
                                         >
-                                            {isEditable ? "Edit Department" : "Add Department"}
+                                            {isEditable ? "Save" : "Add Department"}
                                         </Button>
                                     </Col>
 
